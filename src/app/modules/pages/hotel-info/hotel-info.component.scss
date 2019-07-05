@@ -1,0 +1,19 @@
+mat-card{
+  margin: 20px;
+}
+.hotel-image {
+  width: 200px;
+}
+
+.img-container {
+  background: #cfcfcf;
+  border: 1px solid #cfcfcf;
+  border-radius: 4px;
+  padding: 5px;
+  display: table;
+
+  .img-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}

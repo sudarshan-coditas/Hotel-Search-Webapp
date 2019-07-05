@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row fxLayout="row">
+    <div fxFlex>
+        <h4>Hotel App </h4>
+    </div>
+    <div fxFlex>
+        <div fxLayout="row" fxLayoutAlign="end end">
+
+            <mat-chip-list class="share-url" *ngIf="showUrl">
+              <mat-chip (click)="copyInputMessage(shareUrl)">{{shareUrl}}</mat-chip><mat-icon (click)="copyInputMessage(shareUrl)">file_copy</mat-icon>
+            </mat-chip-list>
+          </div>
+        <!-- <mat-form-field class="example-full-width">
+            <input matInput [value]="shareUrl">
+          </mat-form-field> -->
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<app-spinner></app-spinner>
+<router-outlet></router-outlet>
+

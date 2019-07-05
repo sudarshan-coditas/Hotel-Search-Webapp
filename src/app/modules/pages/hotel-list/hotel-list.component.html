@@ -1,0 +1,20 @@
+<div fxLayout="row" fxLayoutAlign="end end" *ngIf="hotels?.length">
+  <div fxFlex fxFlexAlign="center">
+    <h2><b>Hotels near by {{hotelListLocation}}</b></h2>
+  </div>
+  <div fxFlex *ngIf="hotels?.length">
+    <mat-paginator [length]="pagination.length" [pageSize]="pagination.pageSize" [pageSizeOptions]="pageSizeOptions"
+      (page)="getPageEvent($event)">
+    </mat-paginator>
+  </div>
+</div>
+<div fxLayout="column" fxLayoutAlign="center center">
+  <!-- <div fxFlexLayout="column"> -->
+    <app-hotel-info class="hotel-card" [hotelList]="hotels"></app-hotel-info>
+  <!-- </div> -->
+</div>
+<div fxLayout="row" fxLayoutAlign="end end" *ngIf="hotels?.length">
+  <mat-paginator [length]="pagination.length" [pageSize]="pagination.pageSize" [pageSizeOptions]="pageSizeOptions"
+    (page)="getPageEvent($event)">
+  </mat-paginator>
+</div>

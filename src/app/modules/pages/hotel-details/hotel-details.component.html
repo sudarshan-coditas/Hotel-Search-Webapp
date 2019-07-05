@@ -1,0 +1,38 @@
+<mat-card>
+  <div class="header">
+    <h2><b>{{hotelDetails.name}}</b></h2>
+    <h4>{{getAddress(hotelDetails.contact.address)}} <br />
+      <b>{{hotelDetails.contact.email}}</b>
+      <br />
+      <b>{{hotelDetails.websiteURL}}</b></h4>
+  </div>
+  <div fxLayout="row" fxLayout.gt-sm="column" fxLayoutAlign="center" *ngIf="images && images.length > 0">
+    <app-image-gallary #imageGallery [images]="images" [conf]="conf" (onOpen)="galleryOpened($event)"
+      (onClose)="galleryClosed()" (onImageClicked)="galleryImageClicked($event)"
+      (onImageChange)="galleryImageChanged($event)" (onDelete)="deleteImage($event)">
+    </app-image-gallary>
+
+    <mat-list *ngFor="let entry of imageGallery.activeImage | keys">
+      <mat-list-item>
+        <code class="prettyprint">
+            {{entry.key}}: {{entry.value.toString()}}
+          </code>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-between" fxLayout.lt-md="column">
+    <div fxFlex *ngIf="hotelDetails.amenities && hotelDetails.amenities.length > 0">
+      <div class="amenities-container">
+        <h5><b>Amenities</b></h5>
+        <p *ngFor="let amenity of hotelDetails.amenities; let i = index;">{{i + 1}}{{ '.' + amenity.name}}</p>
+      </div>
+    </div>
+    <div fxFlex *ngIf="hotelDetails.areaAttractions && hotelDetails.areaAttractions.length > 0">
+      <h5><b>Area Attractions</b></h5>
+      <p *ngFor="let attraction of hotelDetails.areaAttractions; let i = index;">{{i + 1}}{{ '.' + attraction.desc}}</p>
+    </div>
+    <div fxFlex>
+      <p></p>
+    </div>
+  </div>
+</mat-card>

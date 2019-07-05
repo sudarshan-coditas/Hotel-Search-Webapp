@@ -1,0 +1,16 @@
+mat-toolbar {
+  mat-toolbar-row {
+    a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 15px;
+    }
+  }
+}
+.share-url {
+  cursor: pointer;
+  mat-chip {
+    cursor: pointer;
+    background-color: #fff;
+  }
+}

@@ -1,0 +1,45 @@
+<div fxLayout="row" fxLayoutAlign="center">
+  <div fxLayout="column" fxLayoutAlign="center">
+    <div class="searchform-header" fxFlex>
+      <h3>Hotel Search</h3>
+    </div>
+    <mat-card class="card">
+      <mat-card-header>
+      </mat-card-header>
+      <mat-card-content>
+        <form fxLayout="column" name="searchForm" [formGroup]="searchForm" autocomplete="off" novalidate
+          (ngSubmit)="onSubmit()">
+          <mat-form-field fxFlex="50%">
+            <input matInput formControlName="searchPlace" placeholder="Search Places" [(ngModel)]="autocompleteInput"
+              #addresstext>
+          </mat-form-field>
+          <div fxLayout="row" fxLayoutGap="30px">
+            <mat-form-field fxFlex="50%">
+              <input matInput (click)="checkIn.open()" formControlName="checkInDate" [matDatepicker]="checkIn"
+                placeholder="Check-in date">
+              <mat-datepicker-toggle matSuffix [for]="checkIn"></mat-datepicker-toggle>
+              <mat-datepicker #checkIn></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field fxFlex="50%">
+              <input matInput (click)="checkOut.open()" formControlName="checkOutDate" [matDatepicker]="checkOut"
+                placeholder="Check-out date">
+              <mat-datepicker-toggle matSuffix [for]="checkOut"></mat-datepicker-toggle>
+              <mat-datepicker #checkOut></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field fxFlex="50%">
+              <mat-label>Select Travellers</mat-label>
+              <mat-select formControlName="traveller" name="traveller">
+                <mat-option *ngFor="let traveller of travellers" [value]="traveller.type">
+                  {{traveller.type}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div fxFlex="10%">
+            <button mat-raised-button type="submit" color="primary">Search</button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
